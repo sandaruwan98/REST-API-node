@@ -3,11 +3,13 @@ const mongoose = require("mongoose")
 require('dotenv/config')
 const app = express()
 
+// Route import
+const PostRouter = require('./routes/posts')
+
 
 // MIDDLEWARES
-app.use('/posts', ()=>{
-    console.log('this is a middlleware');
-})
+app.use('/posts', PostRouter)
+
 
 
 // ROUTES
@@ -15,9 +17,6 @@ app.get('/', (req,res) => {
     res.send("Heloo")
 })
 
-app.get('/posts', (req,res) => {
-    res.send("Heloo this is posts")
-})
 
 mongoose.connect( process.env.DB_CONNECTION,
     {useNewUrlParser: true ,useUnifiedTopology: true} , 
