@@ -1,8 +1,13 @@
 const express = require("express")
-
+const mongoose = require("mongoose")
+require('dotenv/config')
 const app = express()
-// MIDDLEWARES
 
+
+// MIDDLEWARES
+app.use('/posts', ()=>{
+    console.log('this is a middlleware');
+})
 
 
 // ROUTES
@@ -13,6 +18,11 @@ app.get('/', (req,res) => {
 app.get('/posts', (req,res) => {
     res.send("Heloo this is posts")
 })
+
+mongoose.connect( process.env.DB_CONNECTION,
+    {useNewUrlParser: true ,useUnifiedTopology: true} , 
+    ()=>{console.log("conncted to db");}
+)
 
 
 //SERVER
