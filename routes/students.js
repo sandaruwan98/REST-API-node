@@ -50,4 +50,31 @@ Router.post('/',async (req,res)=>{
 
 
 
+// delete student of given id
+Router.delete('/:studentId',async (req,res)=>{
+    try {
+        const deletedstudent = await Student.remove({_id: req.params.studentId})
+        res.json(deletedstudent)
+
+    } catch (error) {
+        res.json({err: error})
+    }
+})
+
+
+// update student of given id
+Router.patch('/:studentId',async (req,res)=>{
+    try {
+        const updatedstudent = await Student.updateOne(
+            {_id: req.params.studentId},
+            { $set: {title: req.body.title} 
+        })
+        res.json(updatedstudent)
+
+    } catch (error) {
+        res.json({err: error})
+    }
+})
+
+
 module.exports = Router
