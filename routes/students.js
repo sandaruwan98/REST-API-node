@@ -3,11 +3,12 @@ const Router = express.Router()
 
 const Student = require('./../models/Student')
 
-
+// return all student documents
 Router.get('/', async (req,res)=>{
     try {
         const students = await  Student.find();
         res.json(students)
+
     } catch (error) {
         res.json({err: error});
         
@@ -16,11 +17,19 @@ Router.get('/', async (req,res)=>{
 
 })
 
+// return student of given id
+Router.get('/:studentId',async (req,res)=>{
+    try {
+        const student = await Student.findById(req.params.studentId)
+        res.json(student)
 
-Router.get('/test',(req,res)=>{
-    res.send("this is post test")
+    } catch (error) {
+        res.json({err: error})
+    }
 })
 
+
+// add new student document
 Router.post('/',async (req,res)=>{
     // console.log(req.body);
     const student = new Student({
@@ -38,5 +47,7 @@ Router.post('/',async (req,res)=>{
     }
 
 })
+
+
 
 module.exports = Router
