@@ -62,12 +62,42 @@ Router.delete('/:studentId',async (req,res)=>{
 })
 
 
-// update student of given id
-Router.patch('/:studentId',async (req,res)=>{
+// update student name of given id
+Router.patch('name/:studentId',async (req,res)=>{
     try {
         const updatedstudent = await Student.updateOne(
             {_id: req.params.studentId},
-            { $set: {title: req.body.title} 
+            { $set: {name: req.body.name} 
+        })
+        res.json(updatedstudent)
+
+    } catch (error) {
+        res.json({err: error})
+    }
+})
+
+
+// update student city of given id
+Router.patch('city/:studentId',async (req,res)=>{
+    try {
+        const updatedstudent = await Student.updateOne(
+            {_id: req.params.studentId},
+            { $set: {city: req.body.city} 
+        })
+        res.json(updatedstudent)
+
+    } catch (error) {
+        res.json({err: error})
+    }
+})
+
+
+// update student age of given id
+Router.patch('age/:studentId',async (req,res)=>{
+    try {
+        const updatedstudent = await Student.updateOne(
+            {_id: req.params.studentId},
+            { $set: {age: req.body.age} 
         })
         res.json(updatedstudent)
 
