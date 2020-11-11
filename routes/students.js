@@ -63,7 +63,7 @@ Router.delete('/:studentId',async (req,res)=>{
 
 
 // update student name of given id
-Router.patch('name/:studentId',async (req,res)=>{
+Router.patch('/name/:studentId',async (req,res)=>{
     try {
         const updatedstudent = await Student.updateOne(
             {_id: req.params.studentId},
@@ -78,7 +78,7 @@ Router.patch('name/:studentId',async (req,res)=>{
 
 
 // update student city of given id
-Router.patch('city/:studentId',async (req,res)=>{
+Router.patch('/city/:studentId',async (req,res)=>{
     try {
         const updatedstudent = await Student.updateOne(
             {_id: req.params.studentId},
@@ -93,7 +93,7 @@ Router.patch('city/:studentId',async (req,res)=>{
 
 
 // update student age of given id
-Router.patch('age/:studentId',async (req,res)=>{
+Router.patch('/age/:studentId',async (req,res)=>{
     try {
         const updatedstudent = await Student.updateOne(
             {_id: req.params.studentId},

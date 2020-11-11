@@ -10,8 +10,8 @@ app.use(bodyparser.json())
 
 // Route import
 const studentRoute = require('./routes/students')
-// MIDDLEWARES
 
+// MIDDLEWARES
 app.use('/student', studentRoute)
 
 
