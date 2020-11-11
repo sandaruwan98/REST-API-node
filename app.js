@@ -4,11 +4,11 @@ require('dotenv/config')
 const app = express()
 
 // Route import
-const PostRouter = require('./routes/posts')
+const PostRouter = require('./routes/students')
 
 
 // MIDDLEWARES
-app.use('/posts', PostRouter)
+app.use('/student', PostRouter)
 
 
 
