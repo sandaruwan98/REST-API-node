@@ -10,15 +10,17 @@ app.use(bodyparser.json())
 
 // Route import
 const studentRoute = require('./routes/students')
+const movieRoute = require('./routes/movie')
 
-// MIDDLEWARES
+
 app.use('/student', studentRoute)
+app.use('/movie', movieRoute)
 
 
 
 // ROUTES
 app.get('/', (req,res) => {
-    res.send("Heloo")
+    res.send("Hello")
 })
 
 app.post('/',(req,res)=>{
