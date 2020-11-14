@@ -12,7 +12,6 @@ app.use(bodyparser.json())
 const studentRoute = require('./routes/students')
 const movieRoute = require('./routes/movie')
 
-
 app.use('/student', studentRoute)
 app.use('/movie', movieRoute)
 
@@ -20,12 +19,9 @@ app.use('/movie', movieRoute)
 
 // ROUTES
 app.get('/', (req,res) => {
-    res.send("Hello")
+    res.send("Hello this is movie API")
 })
 
-app.post('/',(req,res)=>{
-    console.log(req.body);
-})
 
 
 mongoose.connect( process.env.DB_CONNECTION,

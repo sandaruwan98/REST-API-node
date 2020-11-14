@@ -4,6 +4,19 @@ const Route = express.Router()
 
 const Movie = require('./../models/Movie')
 
+
+// get  movie by id
+Route.get('/:id', async (req,res) => {
+    try {
+        const movies = await Movie.findById(req.params.id)
+        res.json(movies)
+        
+    } catch (error) {
+        res.json({"msg": error})
+    }
+})
+
+
 // get all movies with a limit
 Route.get('/all/:count', async (req,res) => {
     try {
@@ -14,6 +27,20 @@ Route.get('/all/:count', async (req,res) => {
         res.json({"msg": error})
     }
 })
+
+
+// get all movies higher than given rating
+Route.get('/imdb/:val', async (req,res) => {
+    try {
+        const movies = await Movie.find().where('imdb.rating').gte(parseFloat(req.params.val))
+        res.json(movies)
+        
+    } catch (error) {
+        res.json({"msg": error})
+    }
+})
+
+
 
 // search movie by title
 Route.get('/:title', async (req,res) => {
