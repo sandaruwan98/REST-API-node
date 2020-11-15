@@ -2,6 +2,19 @@
 
 To run in localhost,
 
-## npm start
+### npm start
 or
-## node app.js
+### node app.js
+
+
+#### GET  /movie/all/{limit}    
+    Get movie title list with given limit.
+
+#### GET  /movie/{id}    
+    Get a movie details with given id.
+
+#### GET  /movie/search/{word}
+    Search movies and get results
+    
+#### GET  /movie/imdb/{rating}    
+    Get all movies higher than given imdb rating.
