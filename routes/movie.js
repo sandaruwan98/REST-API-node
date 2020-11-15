@@ -17,16 +17,28 @@ Route.get('/:id', async (req,res) => {
 })
 
 
-// get all movies with a limit
+// get all movie titles with a limit
 Route.get('/all/:count', async (req,res) => {
     try {
-        const movies = await Movie.find().limit( parseInt(req.params.count))
+        const movies = await Movie.find().select('title').limit( parseInt(req.params.count))
         res.json(movies)
         
     } catch (error) {
         res.json({"msg": error})
     }
 })
+
+
+// // get all movies titles
+// Route.get('/all', async (req,res) => {
+//     try {
+//         const movies = await Movie.find().select('title')
+//         res.json(movies)
+        
+//     } catch (error) {
+//         res.json({"msg": error})
+//     }
+// })
 
 
 // get all movies higher than given rating
@@ -43,7 +55,7 @@ Route.get('/imdb/:val', async (req,res) => {
 
 
 // search movie by title
-Route.get('/:title', async (req,res) => {
+Route.get('/search/:title', async (req,res) => {
     try {
         const movies = await Movie.find({title: new RegExp(req.params.title)})
         res.json(movies)
