@@ -2,17 +2,19 @@ const express = require("express")
 require('dotenv/config')
 const app = express()
 const mongoose = require("mongoose")
-
+// const jwt = require('./helpers/jwt')
 const bodyparser = require('body-parser')
 app.use(bodyparser.json())
 
-
+// app.use(jwt())
 
 // Route import
-const studentRoute = require('./routes/students')
+const userRoute = require('./routes/user')
 const movieRoute = require('./routes/movie')
 
-app.use('/student', studentRoute)
+
+app.use('/login', loginRoute)
+app.use('/user', userRoute)
 app.use('/movie', movieRoute)
 
 
@@ -36,3 +38,6 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 //SERVER
 app.listen(3001)
 console.log("server listening at port 3001")
+
+
+
