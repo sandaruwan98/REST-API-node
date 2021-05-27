@@ -1,10 +1,18 @@
 const { Router } = require('express')
-const express = require('express')
-
-const router = express.Router()
+const {secret} = require('../helpers/config')
+const Route = Router()
 const User = require('../models/User')
 
-router.post('/', (req,res) => {
+Route.post('/', (req,res) => {
     const { username,password } = req.body
+    
+
+    const token = jwt.sign({ sub: user.id }, secret, { expiresIn: '7d' });
+
     res.json({password,username})
 } )
+
+
+
+
+module.exports = Route

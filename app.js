@@ -2,7 +2,7 @@ const express = require("express")
 require('dotenv/config')
 const app = express()
 const mongoose = require("mongoose")
-// const jwt = require('./helpers/jwt')
+const jwt = require('./helpers/jwt')
 const bodyparser = require('body-parser')
 app.use(bodyparser.json())
 
@@ -11,6 +11,7 @@ app.use(bodyparser.json())
 // Route import
 const userRoute = require('./routes/user')
 const movieRoute = require('./routes/movie')
+const loginRoute = require('./routes/login')
 
 
 app.use('/login', loginRoute)

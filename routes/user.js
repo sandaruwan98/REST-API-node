@@ -33,9 +33,10 @@ Router.get('/:userId',async (req,res)=>{
 Router.post('/',async (req,res)=>{
     // console.log(req.body);
     const user = new User({
-        name: req.body.name,
+        username: req.body.username,
+        password: req.body.password,
+        email: req.body.email,
         age: req.body.age,
-        city: req.body.city
     })
 
     try {
