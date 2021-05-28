@@ -6,7 +6,7 @@ const jwt = require('./helpers/jwt')
 const bodyparser = require('body-parser')
 app.use(bodyparser.json())
 
-// app.use(jwt())
+app.use(jwt())
 
 // Route import
 const userRoute = require('./routes/user')
