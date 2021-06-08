@@ -9,8 +9,8 @@ const UserSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    age: {
-        type: Number
+    usertype: {
+        type: String
     },
     email: {
         type: String
